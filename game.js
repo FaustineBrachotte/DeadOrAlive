@@ -4,7 +4,7 @@ function drawCross() {
 }
 
 function isDead() {
-	const container = document.getElementById('death-container');
+	const container = document.getElementById('isDead');
 	container.style.visibility = 'visible';
 }
 
@@ -19,6 +19,7 @@ async function fetchCharacter() {
 		const data = await response.json();
 		console.log(data);
 		displayCharacter(data);
+		displayDeath(data);
 	} catch (error) {
 		console.error(error);
 	}
@@ -32,15 +33,15 @@ function displayCharacter(data) {
 }
 
 function displayDeath(data) {
-	const container = document.getElementById('death-container');
-	const div = document.createElement('div');
+	const div = document.getElementById('isDead');
+	div.textContent = 'OW';
+
 	if (data.died != '') {
 		div.textContent = 'Mort';
 	} else {
 		div.textContent = 'Pas mort';
 	}
 	div.style.visibility = 'hidden';
-	container.appendChild(div);
 }
 
 function hasName(data) {

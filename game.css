@@ -1,5 +1,6 @@
 body {
 	background-color: #111314;
+	color: white;
 }
 
 * {
@@ -18,10 +19,6 @@ footer img {
 	height: 500px;
 }
 
-#character-container,
-#death-container {
-	color: white;
-}
 .game {
 	margin: 100px;
 }
