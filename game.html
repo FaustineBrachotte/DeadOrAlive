@@ -5,7 +5,16 @@
 		<link rel="stylesheet" href="game.css" />
 	</head>
 	<body>
+		<header>
+			<img
+				class="GOTlogo"
+				src="assets/logo.webp"
+				alt="Logo Game of Thrones"
+			/>
+		</header>
 		<div class="game">
+			<img src="assets/deadoralive.png" alt="Truc" />
+
 			<button onclick="drawCross()">Dead</button>
 			<div class="crossContainer">
 				<div class="cross">
@@ -13,7 +22,14 @@
 					<div class="line2"></div>
 				</div>
 			</div>
+			<div id="character-container"></div>
+			<button onclick="isDead()">Voir la mort</button>
+
+			<div id="death-container"></div>
 		</div>
+		<footer>
+			<img src="assets/dragon.png" alt="Machin" />
+		</footer>
 	</body>
 </html>
 ​

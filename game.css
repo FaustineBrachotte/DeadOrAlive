@@ -1,3 +1,27 @@
+body {
+	background-color: #111314;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.GOTlogo {
+	height: 100px;
+	display: flex;
+	justify-content: center;
+}
+
+footer img {
+	height: 500px;
+}
+
+#character-container,
+#death-container {
+	color: white;
+}
 .game {
 	margin: 100px;
 }
@@ -17,7 +41,7 @@
 	position: absolute;
 	width: 5px;
 	height: 0;
-	background-color: red;
+	background-color: #861212;
 	transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 	border-radius: 5px;
 }
