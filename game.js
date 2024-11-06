@@ -9,15 +9,39 @@ function drawCheck() {
 }
 
 function isDead() {
+	hideBtns();
 	const container = document.getElementById('isDead');
 	container.style.visibility = 'visible';
-	drawCross();
+	if (container.textContent == 'Vivant') {
+		drawCross();
+	} else if (container.textContent == 'Mort') {
+		drawCheck();
+	}
+}
+
+function hideBtns() {
+	const aliveBtn = document.getElementById('aliveBtn');
+	const diedBtn = document.getElementById('deadBtn');
+	aliveBtn.style.visibility = 'hidden';
+	diedBtn.style.visibility = 'hidden';
+}
+
+function showBtns() {
+	const aliveBtn = document.getElementById('aliveBtn');
+	const diedBtn = document.getElementById('deadBtn');
+	aliveBtn.style.visibility = 'visible';
+	diedBtn.style.visibility = 'visible';
 }
 
 function isAlive() {
+	hideBtns();
 	const container = document.getElementById('isDead');
 	container.style.visibility = 'visible';
-	drawCheck();
+	if (container.textContent == 'Mort') {
+		drawCross();
+	} else if (container.textContent == 'Vivant') {
+		drawCheck();
+	}
 }
 
 async function fetchCharacter() {
@@ -45,6 +69,7 @@ async function fetchCharacter() {
 	} catch (error) {
 		console.error(error);
 	}
+	showBtns();
 }
 
 function displayCharacter(data) {
