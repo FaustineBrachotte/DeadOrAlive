@@ -6,10 +6,19 @@ function drawCross() {
 function isDead() {
 	const container = document.getElementById('isDead');
 	container.style.visibility = 'visible';
+	const div = document.getElementById('isDead');
+	if (div.textContent == 'Mort') {
+		drawCross();
+	}
 }
 
 async function fetchCharacter() {
-	const randomNumber = Math.floor(Math.random() * 500) + 1;
+	const cross = document.querySelector('.cross');
+	if (cross !== null) {
+		cross.classList.remove('animate');
+	}
+
+	const randomNumber = Math.floor(Math.random() * 2100) + 1;
 
 	try {
 		const response = await fetch(
@@ -26,16 +35,12 @@ async function fetchCharacter() {
 }
 
 function displayCharacter(data) {
-	const container = document.getElementById('character-container');
-	const div = document.createElement('div');
+	const div = document.getElementById('characterName');
 	div.textContent = data.name;
-	container.appendChild(div);
 }
 
 function displayDeath(data) {
 	const div = document.getElementById('isDead');
-	div.textContent = 'OW';
-
 	if (data.died != '') {
 		div.textContent = 'Mort';
 	} else {

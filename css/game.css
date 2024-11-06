@@ -1,0 +1,116 @@
+@font-face {
+	font-family: 'got';
+	src: url('got.ttf') format('truetype');
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #111314;
+	color: white;
+	height: 100vh;
+}
+
+h1 {
+	color: #5e7c95;
+	font-size: 70px;
+	font-family: 'got', sans-serif;
+	margin-bottom: 20px;
+}
+
+.small {
+	font-size: 30px;
+	position: relative;
+	top: -0.6em;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+.GOTlogo {
+	height: 100px;
+	display: block;
+	margin: 0 auto;
+}
+
+.circle {
+	width: 150px; /* Largeur du cercle */
+	height: 150px; /* Hauteur du cercle */
+	border-radius: 50%; /* Forme en cercle */
+	background-color: #7dbdf1; /* Couleur de fond */
+	color: black;
+	display: flex;
+	justify-content: center; /* Centre horizontalement */
+	align-items: center; /* Centre verticalement */
+	font-size: 1.2em; /* Taille du texte */
+	text-align: center; /* Centre le texte si plusieurs lignes */
+}
+
+.gameTitle {
+	height: 70px;
+	margin-bottom: 50px;
+}
+
+footer img {
+	height: 400px;
+}
+
+.dragon {
+	height: 350px;
+	position: fixed;
+	bottom: 0;
+	left: 60em;
+}
+
+.game {
+	margin: 100px;
+}
+
+.crossContainer {
+	margin: 50px 0;
+}
+
+.cross {
+	position: relative;
+	width: 100px;
+	height: 100px;
+}
+
+.line1,
+.line2 {
+	position: absolute;
+	width: 5px;
+	height: 0;
+	background-color: #861212;
+	transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	border-radius: 5px;
+}
+
+.line1 {
+	bottom: 0;
+	left: 0;
+	transform: rotate(45deg);
+	transform-origin: bottom left;
+}
+
+.line2 {
+	top: 0;
+	left: 0;
+	transform-origin: top left;
+	transform: rotate(-45deg);
+}
+
+.animate .line2 {
+	height: 140px;
+}
+
+.animate .line1 {
+	height: 140px;
+	transition-delay: 0.2s;
+}

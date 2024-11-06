@@ -2,7 +2,8 @@
 	<head>
 		<title>Dead or Alive ?</title>
 		<script src="game.js"></script>
-		<link rel="stylesheet" href="game.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/game.css" />
 	</head>
 	<body>
 		<header>
@@ -12,27 +13,26 @@
 				alt="Logo Game of Thrones"
 			/>
 		</header>
-		<div class="game">
-			<img src="assets/deadoralive.png" alt="Truc" />
-
-			<div id="character-container"></div>
-
-			<button onclick="isDead()">Voir la mort</button>
-
-			<div id="death-container"></div>
-			<div id="isDead"></div>
-
-			<button onclick="drawCross()">Dead</button>
-			<div class="crossContainer">
-				<div class="cross">
-					<div class="line1"></div>
-					<div class="line2"></div>
+		<main class="game">
+			<h1>Dead <span class="small"> or</span>Alive</h1>
+			<div class="flex">
+				<div class="circle">
+					<span id="characterName"></span>
 				</div>
+				<div class="crossContainer">
+					<div class="cross">
+						<div class="line1"></div>
+						<div class="line2"></div>
+					</div>
+				</div>
+				<div id="isDead"></div>
 			</div>
-		</div>
-		<footer>
-			<img src="assets/dragon.png" alt="Machin" />
-		</footer>
+			<button id="deadBtn" onclick="isDead()">Mort</button>
+			<button id="aliveBtn" onclick="isDead()">Vivant</button>
+
+			<button id="replayBtn" onclick="fetchCharacter()">Rejouer</button>
+		</main>
+		<img class="dragon" src="assets/dragon.png" alt="Machin" />
 	</body>
 </html>
 ​
