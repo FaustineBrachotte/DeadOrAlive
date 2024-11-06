@@ -10,7 +10,6 @@
 }
 
 body {
-	/* background-color: #111314; */
 	color: white;
 	height: 100vh;
 	background-image: url('../assets/bg.png');
@@ -41,23 +40,23 @@ h1 {
 }
 
 .circle {
-	width: 150px; /* Largeur du cercle */
-	height: 150px; /* Hauteur du cercle */
-	border-radius: 50%; /* Forme en cercle */
-	background-color: #7dbdf1; /* Couleur de fond */
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: #7dbdf1;
 	color: black;
 	display: flex;
-	justify-content: center; /* Centre horizontalement */
-	align-items: center; /* Centre verticalement */
-	font-size: 1.2em; /* Taille du texte */
-	text-align: center; /* Centre le texte si plusieurs lignes */
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2em;
+	text-align: center;
 }
 
 .dragon {
 	height: 350px;
 	object-fit: scale-down;
 	position: fixed;
-	bottom: -15;
+	bottom: -15px;
 	right: 0;
 }
 
@@ -65,32 +64,51 @@ h1 {
 	margin: 70px;
 }
 
-/* cross */
+.symbolContainer {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	width: 10em;
+}
+
+.cross,
+.check {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+}
+
+.cross.animate,
+.check.animate {
+	visibility: visible;
+}
 
 .crossContainer {
 	margin: 50px 0;
 }
 
-.result {
-	position: relative;
-	width: 100px;
-	height: 100px;
-}
-
 .cross {
-	position: relative;
 	width: 100px;
 	height: 100px;
 }
 
 .line1,
-.line2 {
+.line2,
+.Vline1,
+.Vline2 {
 	position: absolute;
 	width: 5px;
 	height: 0;
+	border-radius: 5px;
+}
+
+.line1,
+.line2 {
 	background-color: #861212;
 	transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-	border-radius: 5px;
 }
 
 .line1 {
@@ -103,8 +121,8 @@ h1 {
 .line2 {
 	top: 0;
 	left: 0;
-	transform-origin: top left;
 	transform: rotate(-45deg);
+	transform-origin: top left;
 }
 
 .animate .line2 {
@@ -116,22 +134,15 @@ h1 {
 	transition-delay: 0.2s;
 }
 
-/* check cross */
-
 .check {
-	position: relative;
 	width: 100px;
 	height: 100px;
 }
 
 .Vline1,
 .Vline2 {
-	position: absolute;
-	width: 5px;
-	height: 0;
 	background-color: #4caf50;
 	transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-	border-radius: 5px;
 }
 
 .Vline1 {
@@ -155,4 +166,9 @@ h1 {
 .animate .Vline1 {
 	height: 140px;
 	transition-delay: 0.2s;
+}
+
+#isDead {
+	width: 10em;
+	text-align: center;
 }

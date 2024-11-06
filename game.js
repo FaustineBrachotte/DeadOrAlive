@@ -57,7 +57,7 @@ function displayDeath(data) {
 	if (data.died != '') {
 		div.textContent = 'Mort';
 	} else {
-		div.textContent = 'Pas mort';
+		div.textContent = 'Vivant';
 	}
 	div.style.visibility = 'hidden';
 }
