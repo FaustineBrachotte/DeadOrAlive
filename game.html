@@ -14,25 +14,59 @@
 			/>
 		</header>
 		<main class="game">
-			<h1>Dead <span class="small"> or</span>Alive</h1>
-			<div class="flex">
-				<div class="circle">
-					<span id="characterName"></span>
-				</div>
-				<div class="crossContainer">
-					<div class="cross">
-						<div class="line1"></div>
-						<div class="line2"></div>
+			<div class="row">
+				<div class="col-12">
+					<div class="row justify-content-center">
+						<h1>Dead <span class="small"> or</span>Alive</h1>
+					</div>
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="circle">
+							<span id="characterName"></span>
+						</div>
+						<div class="crossContainer">
+							<div class="cross">
+								<div class="line1"></div>
+								<div class="line2"></div>
+							</div>
+						</div>
+						<div class="checkContainer">
+							<div class="check">
+								<div class="Vline1"></div>
+								<div class="Vline2"></div>
+							</div>
+						</div>
+						<div id="isDead"></div>
+					</div>
+					<div
+						class="row d-flex justify-content-center align-items-center"
+					>
+						<div class="d-flex col-4 justify-content-between">
+							<button class="col-5" id="deadBtn" onclick="isDead()">
+								Mort
+							</button>
+							<button class="col-5" id="aliveBtn" onclick="isAlive()">
+								Vivant
+							</button>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<button
+							class="col-1 mt-5"
+							id="replayBtn"
+							onclick="fetchCharacter()"
+						>
+							Rejouer
+						</button>
 					</div>
 				</div>
-				<div id="isDead"></div>
+				<!-- <img
+					class="dragon col-lg-4 col-sm-12 mr-5"
+					src="assets/dragon.png"
+					alt=""
+				/> -->
 			</div>
-			<button id="deadBtn" onclick="isDead()">Mort</button>
-			<button id="aliveBtn" onclick="isDead()">Vivant</button>
-
-			<button id="replayBtn" onclick="fetchCharacter()">Rejouer</button>
 		</main>
-		<img class="dragon" src="assets/dragon.png" alt="Machin" />
 	</body>
 </html>
 ​

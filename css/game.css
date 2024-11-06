@@ -10,16 +10,18 @@
 }
 
 body {
-	background-color: #111314;
+	/* background-color: #111314; */
 	color: white;
 	height: 100vh;
+	background-image: url('../assets/bg.png');
+	background-size: cover;
 }
 
 h1 {
 	color: #5e7c95;
 	font-size: 70px;
 	font-family: 'got', sans-serif;
-	margin-bottom: 20px;
+	margin-bottom: 45px;
 }
 
 .small {
@@ -28,13 +30,12 @@ h1 {
 	top: -0.6em;
 }
 
-.flex {
+.row {
 	display: flex;
-	align-items: center;
 }
 
 .GOTlogo {
-	height: 100px;
+	height: 80px;
 	display: block;
 	margin: 0 auto;
 }
@@ -52,28 +53,28 @@ h1 {
 	text-align: center; /* Centre le texte si plusieurs lignes */
 }
 
-.gameTitle {
-	height: 70px;
-	margin-bottom: 50px;
-}
-
-footer img {
-	height: 400px;
-}
-
 .dragon {
 	height: 350px;
+	object-fit: scale-down;
 	position: fixed;
-	bottom: 0;
-	left: 60em;
+	bottom: -15;
+	right: 0;
 }
 
 .game {
-	margin: 100px;
+	margin: 70px;
 }
+
+/* cross */
 
 .crossContainer {
 	margin: 50px 0;
+}
+
+.result {
+	position: relative;
+	width: 100px;
+	height: 100px;
 }
 
 .cross {
@@ -111,6 +112,47 @@ footer img {
 }
 
 .animate .line1 {
+	height: 140px;
+	transition-delay: 0.2s;
+}
+
+/* check cross */
+
+.check {
+	position: relative;
+	width: 100px;
+	height: 100px;
+}
+
+.Vline1,
+.Vline2 {
+	position: absolute;
+	width: 5px;
+	height: 0;
+	background-color: #4caf50;
+	transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	border-radius: 5px;
+}
+
+.Vline1 {
+	bottom: 25px;
+	left: 49px;
+	transform: rotate(35deg);
+	transform-origin: bottom left;
+}
+
+.Vline2 {
+	bottom: 0;
+	left: 0;
+	transform: rotate(-45deg);
+	transform-origin: top left;
+}
+
+.animate .Vline2 {
+	height: 70px;
+}
+
+.animate .Vline1 {
 	height: 140px;
 	transition-delay: 0.2s;
 }

@@ -3,19 +3,32 @@ function drawCross() {
 	cross.classList.add('animate');
 }
 
+function drawCheck() {
+	const check = document.querySelector('.check');
+	check.classList.add('animate');
+}
+
 function isDead() {
 	const container = document.getElementById('isDead');
 	container.style.visibility = 'visible';
-	const div = document.getElementById('isDead');
-	if (div.textContent == 'Mort') {
-		drawCross();
-	}
+	drawCross();
+}
+
+function isAlive() {
+	const container = document.getElementById('isDead');
+	container.style.visibility = 'visible';
+	drawCheck();
 }
 
 async function fetchCharacter() {
 	const cross = document.querySelector('.cross');
 	if (cross !== null) {
 		cross.classList.remove('animate');
+	}
+
+	const check = document.querySelector('.check');
+	if (check !== null) {
+		check.classList.remove('animate');
 	}
 
 	const randomNumber = Math.floor(Math.random() * 2100) + 1;
