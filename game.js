@@ -11,12 +11,42 @@ function drawCheck() {
 function playDead() {
 	showDeath();
 	const isDead = document.getElementById('isDead');
+	const sexe = document.getElementById('sexe');
+
 	isDead.style.visibility = 'visible';
-	if (isDead.textContent == 'Vivant') {
-		isDead.textContent = 'Faux, il est vivant !';
-	} else if (isDead.textContent == 'Mort') {
-		isDead.textContent = 'En effet, il est mort.';
+	if (isDead.textContent == 'alive' && sexe.textContent == 'Male') {
+		isDead.textContent = 'Wrong, he is alive !';
+		markAsAlive();
+	} else if (isDead.textContent == 'alive' && sexe.textContent == 'Female') {
+		isDead.textContent = 'Wrong, she is alive !';
+		markAsAlive();
+	} else if (isDead.textContent == 'dead' && sexe.textContent == 'Male') {
+		isDead.textContent = 'Indeed, he is dead.';
 		markAsDead();
+	} else if (isDead.textContent == 'dead' && sexe.textContent == 'Female') {
+		isDead.textContent = 'Indeed, she is dead.';
+		markAsDead();
+	}
+}
+
+function playAlive() {
+	showDeath();
+	const isDead = document.getElementById('isDead');
+	const sexe = document.getElementById('sexe');
+
+	isDead.style.visibility = 'visible';
+	if (isDead.textContent == 'dead' && sexe.textContent == 'Male') {
+		isDead.textContent = 'Wrong, he is dead.';
+		markAsDead();
+	} else if (isDead.textContent == 'dead' && sexe.textContent == 'Female') {
+		isDead.textContent = 'Wrong, she is dead.';
+		markAsDead();
+	} else if (isDead.textContent == 'alive' && sexe.textContent == 'Male') {
+		isDead.textContent = 'Well done, he is still alive !';
+		markAsAlive();
+	} else if (isDead.textContent == 'alive' && sexe.textContent == 'Female') {
+		isDead.textContent = 'Well done, she is still alive !';
+		markAsAlive();
 	}
 }
 
@@ -26,6 +56,12 @@ function markAsDead() {
 	circle.style.backgroundColor = '#350707';
 	circle.style.color = 'white';
 	drawCross();
+}
+
+function markAsAlive() {
+	const circle = document.getElementById('circle');
+	circle.style.transition = 'background-color 0.5s ease, color 0.5s ease';
+	circle.style.backgroundColor = '#D6C896';
 }
 
 function showDeath() {
@@ -61,13 +97,14 @@ function isAlive() {
 		drawCross();
 	} else if (isDead.textContent == 'Vivant' && sexe.textContent == 'Male') {
 		isDead.textContent = 'Bravo, il est vivant !';
+		markAsAlive();
 	} else if (isDead.textContent == 'Vivant' && sexe.textContent == 'Female') {
 		isDead.textContent = 'Bravo, elle est vivante !';
+		markAsAlive();
 	}
 }
 
 async function fetchCharacter() {
-	resumePlayState();
 	const randomNumber = Math.floor(Math.random() * 2100) + 1;
 	try {
 		const response = await fetch(
@@ -81,6 +118,7 @@ async function fetchCharacter() {
 	} catch (error) {
 		console.error(error);
 	}
+	resumePlayState();
 	showBtns();
 }
 
@@ -114,9 +152,9 @@ function displaySexe(data) {
 function displayDeath(data) {
 	const div = document.getElementById('isDead');
 	if (data.died != '') {
-		div.textContent = 'Mort';
+		div.textContent = 'dead';
 	} else {
-		div.textContent = 'Vivant';
+		div.textContent = 'alive';
 	}
 	div.style.visibility = 'hidden';
 }

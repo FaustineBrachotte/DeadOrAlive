@@ -16,8 +16,11 @@
 		<main class="game">
 			<div class="row">
 				<div class="col-12">
-					<div class="row justify-content-center">
-						<h1>Dead <span class="small"> or</span>Alive ?</h1>
+					<div
+						class="row justify-content-center align-items-center flex-column"
+					>
+						<h1>Dead <span class="small"> or</span>Alive</h1>
+						<span id="qMark">?</span>
 					</div>
 					<div
 						class="row d-flex justify-content-center align-items-center"
@@ -42,20 +45,20 @@
 					>
 						<div class="d-flex col-4 justify-content-between">
 							<button class="col-5" id="deadBtn" onclick="playDead()">
-								Mort
+								Dead
 							</button>
-							<button class="col-5" id="aliveBtn" onclick="isAlive()">
-								Vivant
+							<button class="col-5" id="aliveBtn" onclick="playAlive()">
+								Alive
 							</button>
 						</div>
 					</div>
 					<div class="row justify-content-center">
 						<button
-							class="col-1 mt-5"
+							class="col-lg-1 col-md-2 mt-5"
 							id="replayBtn"
 							onclick="fetchCharacter()"
 						>
-							Rejouer
+							Play again
 						</button>
 					</div>
 					<div id="sexe"></div>

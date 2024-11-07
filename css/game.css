@@ -3,12 +3,6 @@
 	src: url('got.ttf') format('truetype');
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 body {
 	color: white;
 	height: 100vh;
@@ -18,19 +12,24 @@ body {
 
 h1 {
 	color: #5e7c95;
-	font-size: 70px;
+	font-size: 5vw;
 	font-family: 'got', sans-serif;
-	margin-bottom: 45px;
+	position: relative;
+	margin-bottom: 50px;
+}
+
+#qMark {
+	position: absolute;
+	font-size: 8rem;
+	color: #790625;
+	top: 0.2em;
+	font-style: 'Alike', serif;
 }
 
 .small {
-	font-size: 30px;
+	font-size: 2vw;
 	position: relative;
 	top: -0.6em;
-}
-
-.row {
-	display: flex;
 }
 
 .GOTlogo {
@@ -38,6 +37,41 @@ h1 {
 	display: block;
 	margin: 0 auto;
 }
+
+#isDead {
+	width: 15em;
+	text-align: center;
+}
+
+.dragon {
+	height: 350px;
+	object-fit: scale-down;
+	position: fixed;
+	bottom: -15px;
+	right: 0;
+}
+
+.game {
+	margin: 70px;
+}
+
+/*********************** Circle ****************************/
+
+#circle {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background-color: #7dbdf1;
+	color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2em;
+	text-align: center;
+	padding: 1em;
+}
+
+/************************** Buttons ***********************/
 
 button {
 	border-radius: 20px;
@@ -47,6 +81,11 @@ button {
 
 button:hover {
 	cursor: pointer;
+}
+
+button:focus {
+	border: none;
+	outline: none;
 }
 
 #deadBtn {
@@ -70,45 +109,21 @@ button:hover {
 }
 
 #replayBtn {
-	background-color: #5e7c95;
+	background-color: #6da0ca;
 }
 
 #replayBtn:hover {
 	background-color: #759ebf;
 }
 
-#circle {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	background-color: #7dbdf1;
-	color: black;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.2em;
-	text-align: center;
-	padding: 1em;
-}
-
-.dragon {
-	height: 350px;
-	object-fit: scale-down;
-	position: fixed;
-	bottom: -15px;
-	right: 0;
-}
-
-.game {
-	margin: 70px;
-}
+/********************** Crosses ***************************/
 
 .symbolContainer {
 	position: relative;
 	width: 100px;
 	height: 100px;
-	width: 10em;
-	left: 10em;
+	width: 15em;
+	left: 15em;
 	bottom: 2em;
 }
 
@@ -207,10 +222,4 @@ button:hover {
 .animate .Vline1 {
 	height: 140px;
 	transition-delay: 0.1s;
-}
-
-#isDead {
-	width: 10em;
-	text-align: center;
-	margin-left: 15px;
 }
