@@ -32,7 +32,7 @@
 								<div class="Vline2"></div>
 							</div>
 						</div>
-						<div class="circle">
+						<div id="circle">
 							<span id="characterName"></span>
 						</div>
 						<div id="isDead"></div>
@@ -41,7 +41,7 @@
 						class="row d-flex justify-content-center align-items-center mt-5"
 					>
 						<div class="d-flex col-4 justify-content-between">
-							<button class="col-5" id="deadBtn" onclick="isDead()">
+							<button class="col-5" id="deadBtn" onclick="playDead()">
 								Mort
 							</button>
 							<button class="col-5" id="aliveBtn" onclick="isAlive()">
@@ -58,6 +58,7 @@
 							Rejouer
 						</button>
 					</div>
+					<div id="sexe"></div>
 				</div>
 				<!-- <img
 					class="dragon col-lg-4 col-sm-12 mr-5"
