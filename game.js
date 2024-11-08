@@ -67,8 +67,8 @@ function playAlive() {
 }
 
 function showDeath() {
-	const isDead = document.getElementById('isDead');
-	isDead.style.visibility = 'visible';
+	const divDeath = document.getElementById('isDead');
+	divDeath.style.visibility = 'visible';
 }
 
 function markAsDead() {
