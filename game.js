@@ -1,53 +1,74 @@
-function drawCross() {
-	const cross = document.querySelector('.cross');
-	cross.classList.add('animate');
+async function fetchCharacter() {
+	const randomNumber = Math.floor(Math.random() * 2100) + 1;
+	try {
+		const response = await fetch(
+			`https://www.anapioficeandfire.com/api/characters/${randomNumber}`
+		);
+
+		const data = await response.json();
+		if (data.name !== '') {
+			displayCharacter(data);
+			displayDeath(data);
+			displayGender(data);
+		} else {
+			fetchCharacter();
+		}
+	} catch (error) {
+		console.error(error);
+	}
+	resumePlayState();
 }
 
-function drawCheck() {
-	const check = document.querySelector('.check');
-	check.classList.add('animate');
+function displayCharacter(data) {
+	const divName = document.getElementById('characterName');
+	divName.textContent = data.name;
+}
+
+function displayDeath(data) {
+	const divDeath = document.getElementById('isDead');
+	if (data.died != '') {
+		divDeath.textContent = 'dead';
+	} else {
+		divDeath.textContent = 'alive';
+	}
+	divDeath.style.visibility = 'hidden';
+}
+
+function displayGender(data) {
+	const divGender = document.getElementById('gender');
+	divGender.textContent = data.gender;
+	divGender.style.visibility = 'hidden';
 }
 
 function playDead() {
 	showDeath();
-	const isDead = document.getElementById('isDead');
-	const sexe = document.getElementById('sexe');
+	const divDeath = document.getElementById('isDead');
+	const divGender = document.getElementById('gender');
 
-	isDead.style.visibility = 'visible';
-	if (isDead.textContent == 'alive' && sexe.textContent == 'Male') {
-		isDead.textContent = 'Wrong, he is alive !';
-		markAsAlive();
-	} else if (isDead.textContent == 'alive' && sexe.textContent == 'Female') {
-		isDead.textContent = 'Wrong, she is alive !';
-		markAsAlive();
-	} else if (isDead.textContent == 'dead' && sexe.textContent == 'Male') {
-		isDead.textContent = 'Indeed, he is dead.';
+	if (divDeath.textContent === 'dead') {
 		markAsDead();
-	} else if (isDead.textContent == 'dead' && sexe.textContent == 'Female') {
-		isDead.textContent = 'Indeed, she is dead.';
-		markAsDead();
+	} else if (divDeath.textContent === 'alive') {
+		markAsAlive();
 	}
+	generateMessageDead(divDeath, divGender.textContent);
 }
 
 function playAlive() {
 	showDeath();
-	const isDead = document.getElementById('isDead');
-	const sexe = document.getElementById('sexe');
+	const divDeath = document.getElementById('isDead');
+	const divGender = document.getElementById('gender');
 
-	isDead.style.visibility = 'visible';
-	if (isDead.textContent == 'dead' && sexe.textContent == 'Male') {
-		isDead.textContent = 'Wrong, he is dead.';
+	if (divDeath.textContent === 'dead') {
 		markAsDead();
-	} else if (isDead.textContent == 'dead' && sexe.textContent == 'Female') {
-		isDead.textContent = 'Wrong, she is dead.';
-		markAsDead();
-	} else if (isDead.textContent == 'alive' && sexe.textContent == 'Male') {
-		isDead.textContent = 'Well done, he is still alive !';
-		markAsAlive();
-	} else if (isDead.textContent == 'alive' && sexe.textContent == 'Female') {
-		isDead.textContent = 'Well done, she is still alive !';
+	} else if (divDeath.textContent === 'alive') {
 		markAsAlive();
 	}
+	generateMessageAlive(divDeath, divGender.textContent);
+}
+
+function showDeath() {
+	const isDead = document.getElementById('isDead');
+	isDead.style.visibility = 'visible';
 }
 
 function markAsDead() {
@@ -64,62 +85,33 @@ function markAsAlive() {
 	circle.style.backgroundColor = '#D6C896';
 }
 
-function showDeath() {
-	const isDead = document.getElementById('isDead');
-	isDead.style.visibility = 'visible';
+function drawCross() {
+	const cross = document.querySelector('.cross');
+	cross.classList.add('animate');
 }
 
-function hideBtns() {
-	const aliveBtn = document.getElementById('aliveBtn');
-	const diedBtn = document.getElementById('deadBtn');
-	aliveBtn.style.visibility = 'hidden';
-	diedBtn.style.visibility = 'hidden';
-}
-
-function showBtns() {
-	const aliveBtn = document.getElementById('aliveBtn');
-	const diedBtn = document.getElementById('deadBtn');
-	aliveBtn.style.visibility = 'visible';
-	diedBtn.style.visibility = 'visible';
-}
-
-function isAlive() {
-	hideBtns();
-	const isDead = document.getElementById('isDead');
-	const sexe = document.getElementById('sexe');
-
-	isDead.style.visibility = 'visible';
-	if (isDead.textContent == 'Mort' && sexe.textContent == 'Male') {
-		isDead.textContent = 'Et non, il est mort !';
-		drawCross();
-	} else if (isDead.textContent == 'Vivant' && sexe.textContent == 'Female') {
-		isDead.textContent = 'Et non, elle est morte !';
-		drawCross();
-	} else if (isDead.textContent == 'Vivant' && sexe.textContent == 'Male') {
-		isDead.textContent = 'Bravo, il est vivant !';
-		markAsAlive();
-	} else if (isDead.textContent == 'Vivant' && sexe.textContent == 'Female') {
-		isDead.textContent = 'Bravo, elle est vivante !';
-		markAsAlive();
+function generateMessageDead(divDeath, gender) {
+	if (divDeath.textContent === 'dead') {
+		divDeath.textContent =
+			gender === 'Male' ? 'Indeed, he is dead.' : 'Indeed, she is dead.';
+	} else if (divDeath.textContent === 'alive') {
+		divDeath.textContent =
+			gender === 'Male'
+				? 'Wrong, he is still alive!'
+				: 'Wrong, she is still alive!';
 	}
 }
 
-async function fetchCharacter() {
-	const randomNumber = Math.floor(Math.random() * 2100) + 1;
-	try {
-		const response = await fetch(
-			`https://www.anapioficeandfire.com/api/characters/${randomNumber}`
-		);
-
-		const data = await response.json();
-		displayCharacter(data);
-		displayDeath(data);
-		displaySexe(data);
-	} catch (error) {
-		console.error(error);
+function generateMessageAlive(divDeath, gender) {
+	if (divDeath.textContent === 'dead') {
+		divDeath.textContent =
+			gender === 'Male' ? 'Wrong, he is dead.' : 'Wrong, she is dead.';
+	} else if (divDeath.textContent === 'alive') {
+		divDeath.textContent =
+			gender === 'Male'
+				? 'Well done, he is still alive!'
+				: 'Well done, she is still alive!';
 	}
-	resumePlayState();
-	showBtns();
 }
 
 function resumePlayState() {
@@ -138,32 +130,23 @@ function resumePlayState() {
 	}
 }
 
-function displayCharacter(data) {
-	const div = document.getElementById('characterName');
-	div.textContent = data.name;
-}
-
-function displaySexe(data) {
-	const div = document.getElementById('sexe');
-	div.textContent = data.gender;
-	div.style.visibility = 'hidden';
-}
-
-function displayDeath(data) {
-	const div = document.getElementById('isDead');
-	if (data.died != '') {
-		div.textContent = 'dead';
-	} else {
-		div.textContent = 'alive';
-	}
-	div.style.visibility = 'hidden';
-}
-
-function hasName(data) {
-	const hasName = false;
-	if (data.name !== '') {
-		hasName = true;
-	}
-}
-
 fetchCharacter();
+
+// function drawCheck() {
+// 	const check = document.querySelector('.check');
+// 	check.classList.add('animate');
+// }
+
+// function hideBtns() {
+// 	const aliveBtn = document.getElementById('aliveBtn');
+// 	const diedBtn = document.getElementById('deadBtn');
+// 	aliveBtn.style.visibility = 'hidden';
+// 	diedBtn.style.visibility = 'hidden';
+// }
+
+// function showBtns() {
+// 	const aliveBtn = document.getElementById('aliveBtn');
+// 	const diedBtn = document.getElementById('deadBtn');
+// 	aliveBtn.style.visibility = 'visible';
+// 	diedBtn.style.visibility = 'visible';
+// }

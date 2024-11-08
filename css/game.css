@@ -10,6 +10,18 @@ body {
 	background-size: cover;
 }
 
+.GOTlogo {
+	height: 80px;
+	display: block;
+	margin: 0 auto;
+}
+
+.game {
+	margin: 70px;
+}
+
+/************************* Title ****************************/
+
 h1 {
 	color: #5e7c95;
 	font-size: 5vw;
@@ -18,41 +30,18 @@ h1 {
 	margin-bottom: 50px;
 }
 
-#qMark {
-	position: absolute;
-	font-size: 8rem;
-	color: #790625;
-	top: 0.2em;
-	font-style: 'Alike', serif;
-}
-
 .small {
 	font-size: 2vw;
 	position: relative;
 	top: -0.6em;
 }
 
-.GOTlogo {
-	height: 80px;
-	display: block;
-	margin: 0 auto;
-}
-
-#isDead {
-	width: 15em;
-	text-align: center;
-}
-
-.dragon {
-	height: 350px;
-	object-fit: scale-down;
-	position: fixed;
-	bottom: -15px;
-	right: 0;
-}
-
-.game {
-	margin: 70px;
+#qMark {
+	position: absolute;
+	font-size: 8vw;
+	color: #790625;
+	top: 0.2em;
+	font-style: 'Alike', serif;
 }
 
 /*********************** Circle ****************************/
@@ -69,6 +58,11 @@ h1 {
 	font-size: 1.2em;
 	text-align: center;
 	padding: 1em;
+}
+
+#isDead {
+	width: 15em;
+	text-align: center;
 }
 
 /************************** Buttons ***********************/
@@ -118,7 +112,7 @@ button:focus {
 
 /********************** Crosses ***************************/
 
-.symbolContainer {
+.crossContainer {
 	position: relative;
 	width: 100px;
 	height: 100px;
@@ -140,10 +134,6 @@ button:focus {
 .cross.animate,
 .check.animate {
 	visibility: visible;
-}
-
-.crossContainer {
-	margin: 50px 0;
 }
 
 .cross {
@@ -222,4 +212,14 @@ button:focus {
 .animate .Vline1 {
 	height: 140px;
 	transition-delay: 0.1s;
+}
+
+/*********************** Mobile **************************/
+
+.dragon {
+	height: 350px;
+	object-fit: scale-down;
+	position: fixed;
+	bottom: -15px;
+	right: 0;
 }
