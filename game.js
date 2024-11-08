@@ -131,22 +131,3 @@ function resumePlayState() {
 }
 
 fetchCharacter();
-
-// function drawCheck() {
-// 	const check = document.querySelector('.check');
-// 	check.classList.add('animate');
-// }
-
-// function hideBtns() {
-// 	const aliveBtn = document.getElementById('aliveBtn');
-// 	const diedBtn = document.getElementById('deadBtn');
-// 	aliveBtn.style.visibility = 'hidden';
-// 	diedBtn.style.visibility = 'hidden';
-// }
-
-// function showBtns() {
-// 	const aliveBtn = document.getElementById('aliveBtn');
-// 	const diedBtn = document.getElementById('deadBtn');
-// 	aliveBtn.style.visibility = 'visible';
-// 	diedBtn.style.visibility = 'visible';
-// }
