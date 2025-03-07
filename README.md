@@ -4,6 +4,10 @@ Dead or Alive ? est un jeu qui consiste à deviner si les personnages de Game of
 
 ![image](https://github.com/user-attachments/assets/9b4c1648-d983-4165-82d7-c8dac24514da)
 
+<a href="https://github.com/user-attachments/assets/9b4c1648-d983-4165-82d7-c8dac24514da" target="_blank" rel="noopener noreferrer">Jouez ici</a>
+<br>
+<br>
+
 **Technologies :**
 - Javascript
 - CSS
